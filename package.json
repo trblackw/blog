@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@types/react-syntax-highlighter": "^11.0.1",
     "gatsby": "^2.16.1",
     "gatsby-image": "^2.2.29",
     "gatsby-plugin-feed": "^2.3.18",
@@ -30,13 +31,17 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
+    "react-syntax-highlighter": "^11.0.2",
     "react-typography": "^0.16.19",
+    "styled-components": "^4.4.0",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-parnassus": "^0.16.19"
   },
   "devDependencies": {
+    "@types/react-helmet": "^5.0.12",
+    "@types/styled-components": "^4.1.19",
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"
   },
