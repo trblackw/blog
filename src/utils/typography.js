@@ -1,7 +1,6 @@
 import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
-
-Wordpress2016.overrideThemeStyles = () => {
+import parnassusTheme from 'typography-theme-parnassus'
+parnassusTheme.overrideThemeStyles = () => {
   return {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
@@ -9,9 +8,9 @@ Wordpress2016.overrideThemeStyles = () => {
   }
 }
 
-delete Wordpress2016.googleFonts
+delete parnassusTheme.googleFonts
 
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(parnassusTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

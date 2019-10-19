@@ -2,8 +2,12 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "components/layout"
 import SEO from "components/seo"
+interface Props {
+  data: { [key: string]: any };
+  location: Location;
+}
 
-const NotFoundPage: React.FC = ({ data, location }: any): JSX.Element => (
+const NotFoundPage: React.FC<Props> = ({ data, location }): JSX.Element => (
   <Layout location={location} title={data.site.siteMetadata.title}>
     <SEO title="404: Not Found" />
     <h1>Not Found</h1>

@@ -14,7 +14,7 @@ import { rhythm } from "../utils/typography"
 const Bio: React.FC = (): JSX.Element => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
           fixed(width: 50, height: 50) {
             ...GatsbyImageSharpFixed
@@ -54,7 +54,7 @@ const Bio: React.FC = (): JSX.Element => {
         }}
       />
       <p>
-        My name is <strong>{author}</strong>. I like to learn, build & write about things I find interesting. 
+        I like to learn, build & write about things I find interesting. It often times coincides with React ⚛️
       </p>
     </div>
   )
