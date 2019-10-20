@@ -72,11 +72,10 @@ const DropdownContent = styled.div`
   position: absolute;
   right: 0;
   border-radius: 7px;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: ${({ theme }) => theme.boxShadow};
+  background-color: #f0f0f0;
+  min-width: 170px;
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
   z-index: 100;
-  /* top: 40px; */
 
   @media only screen and (max-width: 600px) {
     display: ${({ visible }: { visible: boolean }) =>

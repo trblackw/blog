@@ -66,10 +66,10 @@ const BlogPreview = styled.h3`
 `
 
 const BlogLink = styled(Link)`
-  box-shadow: none;
-  color: #19cfff;
+  box-shadow: none!important;
+  color: #19cfff!important;
   &:hover {
-    color: #1197ba;
+    color: #1197ba!important;
   }
 `
 
