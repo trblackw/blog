@@ -35,7 +35,7 @@ export default (): [Dimension] => {
         window.removeEventListener("resize", deriveWindowDimensions)
       }
     }
-  }, [windowDimensions])
+  }, [])
 
   return [windowDimensions]
 }
