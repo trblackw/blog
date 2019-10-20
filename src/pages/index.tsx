@@ -8,7 +8,7 @@ import styled from "styled-components"
 
 const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
   <Layout location={location} title={data.site.siteMetadata.title}>
-    <SEO title="All posts" />
+    <SEO title="Blog" />
     <Bio />
     {data.allMarkdownRemark.edges.map(
       ({ node }: any): JSX.Element => (
