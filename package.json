@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "personal-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Tucker Blackwell's personal blog",
   "version": "0.1.0",
   "author": "Tucker Blackwell <tuckerblackwell.dev@gmail.com>",
   "bugs": {

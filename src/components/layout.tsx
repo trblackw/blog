@@ -29,7 +29,7 @@ const Layout: React.FC<Props> = ({
             marginTop: 0,
           }}
         >
-          <HeaderLink to={`/`}>{title}</HeaderLink>
+          <HeaderLink to={`/`}>Tucker Blackwell</HeaderLink>
         </h1>
           <small style={{color: '#aaa'}}>Psst.. the navigation links are a work in progess!</small>
           <NavDropdown />
