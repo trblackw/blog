@@ -73,7 +73,7 @@ const DropdownContent = styled.div`
   right: 0;
   border-radius: 7px;
   background-color: #f0f0f0;
-  min-width: 170px;
+  min-width: 182px;
   box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.09);
   z-index: 100;
 
@@ -101,7 +101,7 @@ const ContentItem = styled.div`
 const ContentButton = styled.button.attrs({ type: "button" })`
   border: none;
   background-color: transparent;
-  font-size: 1em;
+  font-size: 0.9em;
   cursor: pointer;
   width: 100%;
 
