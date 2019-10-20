@@ -8,7 +8,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-
+import styled from 'styled-components'
 import { rhythm } from "../utils/typography"
 
 const Bio: React.FC = (): JSX.Element => {
@@ -34,12 +34,7 @@ const Bio: React.FC = (): JSX.Element => {
 
   const { author } = data.site.siteMetadata
   return (
-    <div
-      style={{
-        display: `flex`,
-        marginBottom: rhythm(2.5),
-      }}
-    >
+    <Container>
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
@@ -56,8 +51,13 @@ const Bio: React.FC = (): JSX.Element => {
       <p>
         I like to learn, build & write about things I find interesting. It often times coincides with React ⚛️
       </p>
-    </div>
+    </Container>
   )
 }
 
 export default Bio
+
+const Container = styled.div`
+  display: flex;
+  margin-bottom: ${rhythm(1)}
+`

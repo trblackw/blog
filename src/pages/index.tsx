@@ -1,9 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
+import Bio from "components/bio"
+import Layout from "components/layout"
+import SEO from "components/seo"
+import { rhythm } from "utils/typography"
+import styled from "styled-components"
 
 const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
   <Layout location={location} title={data.site.siteMetadata.title}>
@@ -13,16 +14,12 @@ const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
       ({ node }: any): JSX.Element => (
         <article key={node.fields.slug}>
           <header>
-            <h3
-              style={{
-                marginBottom: rhythm(1 / 4),
-              }}
-            >
-              <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+            <BlogPreview>
+              <BlogLink to={node.fields.slug}>
                 {node.frontmatter.title || node.fields.slug}
-              </Link>
-            </h3>
-            <small>{node.frontmatter.date}</small>
+              </BlogLink>
+            </BlogPreview>
+            <BlogDate>{node.frontmatter.date}</BlogDate>
           </header>
           <section>
             <p
@@ -62,4 +59,20 @@ export const pageQuery = graphql`
       }
     }
   }
+`
+
+const BlogPreview = styled.h3`
+  margin-bottom: ${rhythm(1 / 4)};
+`
+
+const BlogLink = styled(Link)`
+  box-shadow: none;
+  color: #19cfff;
+  &:hover {
+    color: #1197ba;
+  }
+`
+
+const BlogDate = styled.small`
+  color: #aaa;
 `
