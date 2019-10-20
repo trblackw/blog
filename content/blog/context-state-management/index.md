@@ -16,7 +16,7 @@ Redux definitely has its learning curves and it can be difficult to grasp its aw
 
 Through picking and pulling from various methods I’ve seen in tutorials and walkthroughs about Hooks, I’ve crafted a way to apply the style of state-management we see used in Redux but with *just* React. Full transparency, the applications in which I’m using this system are of relatively small scale and I think that larger applications with many developers could definitely stand to benefit a lot more from using Redux.
 
-This system utilizes the (useContext)[https://www.npmjs.com/package/redux-devtools-extension] and (useReducer)[https://reactjs.org/docs/hooks-reference.html#usereducer] Hooks. The former, as described in the React docs, 
+This system utilizes the [useContext](https://www.npmjs.com/package/redux-devtools-extension) and [useReducer](https://reactjs.org/docs/hooks-reference.html#usereducer) Hooks. The former, as described in the React docs, 
 >“Accepts a context object (the value returned from React.createContext) and returns the current context value, as given by the nearest context provider for the given context”
 
 and the latter 
@@ -122,7 +122,7 @@ A couple of things to note… First, why did I repeat code when defining my init
 
 In other words, you can only call a Hook at the top level of a React function, not a regular JavaScript function.
 
-Also, what the heck is this console.log business? Well, if you’ve ever used the (redux-logger)[https://www.npmjs.com/package/redux-logger] middleware, this is my cheap attempt at mimicking that functionality and letting me know when each reducer is being called.
+Also, what the heck is this console.log business? Well, if you’ve ever used the [redux-logger](https://www.npmjs.com/package/redux-logger) middleware, this is my cheap attempt at mimicking that functionality and letting me know when each reducer is being called.
 
 If you haven’t been able to tell already, I’m a huge fan of deconstruction and have deconstructed my “payload” (if you’re familiar with Redux) in the parameters of my reducer function. Notice, however, that overall, this follows a very similar structure as a Redux reducer — mainly because it’s just plain JavaScript.
 
@@ -157,7 +157,7 @@ return localStorage.setItem( "auth-user", JSON.stringify({
 };
 ```
 
-If you’ve ever used (redux-thunks)[https://www.npmjs.com/package/redux-thunk], that’s essentially the form of each of my action creators. Notice how I’m accepting the dispatch function as an argument, which is passed to the action from the component in which it’s called.
+If you’ve ever used [redux-thunks](https://www.npmjs.com/package/redux-thunk), that’s essentially the form of each of my action creators. Notice how I’m accepting the dispatch function as an argument, which is passed to the action from the component in which it’s called.
 
 So, how the heck do you actually make use of all this? Well, here’s how I use it in my <mark>components/Register.js</mark> (making use of the action creator defined above):
 
