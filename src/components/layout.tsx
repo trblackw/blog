@@ -31,6 +31,7 @@ const Layout: React.FC<Props> = ({
         >
           <HeaderLink to={`/`}>{title}</HeaderLink>
         </h1>
+          <small style={{color: '#aaa'}}>Psst.. the navigation links are a work in progess!</small>
           <NavDropdown />
 
         <Nav>

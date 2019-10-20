@@ -59,5 +59,4 @@ export default Bio
 
 const Container = styled.div`
   display: flex;
-  margin-bottom: ${rhythm(1)}
 `
