@@ -39,7 +39,7 @@ My file structure for these projects looks like this:
 
 In <mark>context/index.js</mark> I create an instance of context using React.createContext:
 
-```javascript{numberLines: true}
+```jsx{numberLines: true}
 import { createContext } from "react";
 const UserContext = createContext({
   currentUser: localStorage.getItem("auth-user")
@@ -51,7 +51,7 @@ export default UserContext;
 
 Then, in <mark>App.js</mark> I define my `initialState`, storing in it the returned value of the useContext hook:
 
-```javascript{numberLines: true}
+```jsx{numberLines: true}
 const App = () => {
    const initialState = useContext(UserContext);
    const [{ currentUser }, dispatch] = useReducer(
@@ -60,19 +60,19 @@ const App = () => {
    );
    return (
       <UserContext.Provider value={{ currentUser, dispatch }}>
-   <Nav />
-   <Router>
-      <Login path="/" />
-      <Register path="/register" />
-      <Dashboard path="/user/:id" />
-   </Router>
-   </UserContext.Provider>
+      <Nav />
+      <Router>
+          <Login path="/" />
+          <Register path="/register" />
+          <Dashboard path="/user/:id" />
+      </Router>
+      </UserContext.Provider>
 )};
 ```
 
 Notice at the top of my App component, I deconstruct the currentUser from the state that is deconstructed from the returned value of useReducer (*~deconstruction inception~*). I then pass the currentUser and the dispatch function received from useReducer (which we’ll get to in a minute) to the context provider, making it available to each component in my app. For anyone not familiar with deconstructing, the same can be accomplished via:
 
-```javascript{numberLines: true}
+```jsx{numberLines: true}
 const [state, dispatch] = useReducer(UserReducer, initialState)
 ...
 <UserContext.Provider value={{ currentUser: state.currentUser, dispatch }}
@@ -80,7 +80,7 @@ const [state, dispatch] = useReducer(UserReducer, initialState)
 
 Now let’s take a look at my reducer in <mark>reducer/index.js</mark>:
 
-```javascript{numberLines: true}
+```jsx{numberLines: true}
 import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from "./constants";
 const initialState = {
   currentUser: localStorage.getItem("auth-user")
