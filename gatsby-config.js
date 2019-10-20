@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Tucker Blackwell`,
     author: `Tucker Blackwell`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Tucker's personal blog`,
+    siteUrl: `https://www.tuckerblackwell.com/`,
     social: {
       twitter: `tuckerblackwell`,
     },
@@ -21,6 +21,15 @@ module.exports = {
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `tomato`,
+        // Disable the loading spinner.
+        showSpinner: false,
       },
     },
     {
