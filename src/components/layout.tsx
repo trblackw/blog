@@ -1,6 +1,9 @@
 import React, { ReactNode } from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "utils/typography"
+import styled from "styled-components"
+import { ArrowBackIos } from "styled-icons/material/ArrowBackIos"
+import NavDropdown from "./mobile_nav"
 
 interface Props {
   readonly location: { pathname: string }
@@ -18,56 +21,50 @@ const Layout: React.FC<Props> = ({
 
   if (location.pathname === rootPath) {
     header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
+      <>
+        <h1
           style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
+            ...scale(1.5),
+            marginBottom: rhythm(1),
+            marginTop: 0,
           }}
-          to={`/`}
         >
-          {title}
-        </Link>
-      </h1>
+          <HeaderLink to={`/`}>{title}</HeaderLink>
+        </h1>
+          <NavDropdown />
+
+        <Nav>
+          <li>
+            <NavLink to="#">About me 🕵🏻‍</NavLink>
+          </li>
+          <li>
+            <NavLink to="#">Custom Hooks 🧪</NavLink>
+          </li>
+          <li>
+            <NavLink to="#">Contact 📬</NavLink>
+          </li>
+          <li>
+            <NavLink to="/activity">Activity 👨🏻‍💻</NavLink>
+          </li>
+        </Nav>
+      </>
     )
   } else {
     header = (
-      <h3
-        style={{
-          fontFamily: `Merriweather Sans, sans-serif`,
-          marginTop: 0,
-          color: '#19CFFF',
-        }}
-      >
-        <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
-          to={`/`}
-        >
-          {title}
-        </Link>
-      </h3>
+      <SubHeader>
+        <HeaderLink to={`/`}>
+          <ArrowBackIos
+            size={30}
+            title="Arrow back"
+            fontWeight={300}
+            color="blue"
+          />
+        </HeaderLink>
+      </SubHeader>
     )
   }
   return (
-    <div
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(24),
-        padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      }}
-    >
+    <Container>
       <header>{header}</header>
       <main>{children}</main>
       <footer>
@@ -75,8 +72,50 @@ const Layout: React.FC<Props> = ({
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
       </footer>
-    </div>
+    </Container>
   )
 }
 
 export default Layout
+
+const SubHeader = styled.h1`
+  font-family: Merriweather Sans, sans-serif;
+  margin-top: 0;
+  color: #19cfff;
+`
+
+const HeaderLink = styled(Link)`
+  box-shadow: none;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: none;
+`
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: ${rhythm(24)};
+  padding: ${rhythm(1.5)} ${rhythm(3 / 4)};
+`
+const Nav = styled.ul`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: auto;
+  list-style: none;
+  li {
+    margin: 0 20px;
+  }
+  li:first-child {
+    margin-left: unset;
+  }
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
+`
+
+const NavLink = styled(Link)`
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: none;
+`
