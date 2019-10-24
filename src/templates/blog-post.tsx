@@ -88,6 +88,7 @@ export const pageQuery = graphql`
 `
 const PostTitle = styled.h1`
   margin: ${rhythm(1)} 0 0 0;
+  color: #eee;
 `
 const PostDate = styled.p`
   scale: ${scale(-1 / 5)};
@@ -105,4 +106,5 @@ const Ul = styled.ul`
   justify-content: space-between;
   list-style: none;
   padding: 0;
+  color: #eee;
 `

@@ -68,11 +68,11 @@ const Layout: React.FC<Props> = ({
     <Container>
       <header>{header}</header>
       <main>{children}</main>
-      <footer>
+      <Footer>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      </Footer>
     </Container>
   )
 }
@@ -119,4 +119,13 @@ const NavLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   box-shadow: none;
+  color: #12a3c9;
+`
+
+const Footer = styled.footer`
+  color: #eee;
+
+  a {
+    color: #12a3c9;
+  }
 `
