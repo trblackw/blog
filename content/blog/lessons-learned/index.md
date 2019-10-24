@@ -19,8 +19,6 @@ As a recent exercise, I decided to sit down and write out all of the most valuab
 
 You learn very quickly when working with a team of developers that no matter how slick your one-liner function is, its terseness is a major barrier to its readability. I often centered my approaches to solving problems around writing as little code as possible--the fewer lines the better! However, the majority of our time as developers is spent reading instead of writing code, and readable code is often more approachable and easier to debug.
 
-For example, let’s say you’re tasked with writing a function 
-
 Keep in mind that favoring readability isn’t just going to help your fellow team members, but also your future self! This is still something that I have to remind myself multiple times a day. When I write code now, I try to frame it from the perspective of one of my team members.
 
 ## Cleverness killed the developer(s)
