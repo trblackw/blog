@@ -48,7 +48,7 @@ const Bio: React.FC = (): JSX.Element => {
           borderRadius: `50%`,
         }}
       />
-      <p>
+      <p style={{ color: '#eee' }}>
         I like to learn, build & write about things I find interesting. It often times coincides with React ⚛️
       </p>
     </Container>

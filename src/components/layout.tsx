@@ -58,7 +58,7 @@ const Layout: React.FC<Props> = ({
             size={30}
             title="Arrow back"
             fontWeight={300}
-            color="blue"
+            color="#537ec5"
           />
         </HeaderLink>
       </SubHeader>
@@ -68,11 +68,11 @@ const Layout: React.FC<Props> = ({
     <Container>
       <header>{header}</header>
       <main>{children}</main>
-      <footer>
+      <Footer>
         © {new Date().getFullYear()}, Built with
         {` `}
         <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+      </Footer>
     </Container>
   )
 }
@@ -119,4 +119,19 @@ const NavLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   box-shadow: none;
+  color: #537ec5;
+  &:hover {
+    color: #293a80;
+  }
+`
+
+const Footer = styled.footer`
+  color: #eee;
+
+  a {
+    color: #537ec5;
+    &:hover {
+    color: #293a80;
+  }
+  }
 `

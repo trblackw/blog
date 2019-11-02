@@ -1,9 +1,24 @@
 import Typography from "typography"
+import "./global.css"
 import parnassusTheme from 'typography-theme-parnassus'
 parnassusTheme.overrideThemeStyles = () => {
   return {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
+    },
+    'h1 code, h2 code, h3 code, h4 code, h5 code, h6 code': {
+      fontSize: 'inherit',
+    },
+    'li code': {
+      fontSize: '1rem',
+    },
+    blockquote: {
+      color: 'inherit',
+      borderLeftColor: 'inherit',
+      opacity: '0.8',
+    },
+    'blockquote.translation': {
+      fontSize: '1em',
     },
   }
 }
