@@ -90,6 +90,8 @@ const HeaderLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   box-shadow: none;
+  font-weight: 300;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 `
 const Container = styled.div`
   margin: 0 auto;

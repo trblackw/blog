@@ -31,11 +31,11 @@ const NavDropdown: React.FC = (): JSX.Element => {
     <Dropdown>
       <Button onClick={toggleDropdown} id="user-icon">
         {!open ? (
-          <Menu size={30} fontWeight={300} color={"black"} />
+          <Menu size={30} fontWeight={300} color="#537ec5" />
         ) : windowWidth > 768 ? (
-          <Close size={30} fontWeight={500} color={"black"} />
+          <Close size={30} fontWeight={500} color="#537ec5" />
         ) : (
-          <Menu size={30} fontWeight={300} color={"black"} />
+          <Menu size={30} fontWeight={300} color="#537ec5" />
         )}
       </Button>
       <Pointer />
