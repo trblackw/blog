@@ -58,7 +58,7 @@ const Layout: React.FC<Props> = ({
             size={30}
             title="Arrow back"
             fontWeight={300}
-            color="blue"
+            color="#537ec5"
           />
         </HeaderLink>
       </SubHeader>
@@ -119,13 +119,19 @@ const NavLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   box-shadow: none;
-  color: #12a3c9;
+  color: #537ec5;
+  &:hover {
+    color: #293a80;
+  }
 `
 
 const Footer = styled.footer`
   color: #eee;
 
   a {
-    color: #12a3c9;
+    color: #537ec5;
+    &:hover {
+    color: #293a80;
+  }
   }
 `

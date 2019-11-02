@@ -63,7 +63,7 @@ const Activity: React.FC = (): JSX.Element => {
           size={30}
           title="Arrow back"
           fontWeight={300}
-          color="blue"
+          color="#537ec5s"
         />
       </NavLink>
       {loading ? (
@@ -124,7 +124,7 @@ const RepoInfo: React.FC<Repo> = ({
     <RepoDesc>{description}</RepoDesc>
 
     <Flex>
-      <RepoLang>{language}</RepoLang>
+      <RepoLang>✏️ {language}</RepoLang>
       <LastCommit>Last updated: {convertTimeStamp(updated_at)}</LastCommit>
       {homepage && (
         <RepoLiveUrl>
@@ -165,7 +165,7 @@ const Avatar = styled.img`
 `
 const UserInfo = styled.div``
 const Username = styled.h3`
-  color: #24292e;
+  color: #537ec5;
   font-weight: bolder;
   margin-top: auto;
   margin-bottom: 0;
@@ -181,7 +181,7 @@ const ProfileLink = styled.a`
 const StatsLabel = styled.span`
   font-weight: bold;
   font-size: 1.1em;
-  color: #24292e;
+  color: #537ec5;
   display: block;
   margin: 0;
 `
@@ -207,7 +207,7 @@ const RepoContainer = styled.div`
   }
 `
 const RepoTitle = styled.a`
-  color: #19cfff;
+  color: #f39422;
   text-decoration: none;
   box-shadow: none;
   font-weight: bold;
@@ -215,17 +215,17 @@ const RepoTitle = styled.a`
   margin-bottom: 3px;
   cursor: pointer;
   &:hover {
-    color: #1197ba;
+    color: #ba6602;
   }
 `
 const RepoDesc = styled.p`
-  color: #4e5862;
+  color: #eee;
   font-size: 0.9em;
 `
 const RepoLang = styled.span`
-  color: #4e5862;
+  color: #eee;
   font-weight: 600;
-  font-size: 0.8em;
+  font-size: 0.7em;
 `
 const RepoLiveUrl = styled.div`
   display: flex;
@@ -249,7 +249,7 @@ const NavLink = styled(Link)`
   box-shadow: none;
 `
 const Email = styled.span`
-  color: #1197ba;
+  color: #537ec5;
   font-weight: bold;
 `
 const ErrorMessage = styled.div`

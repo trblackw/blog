@@ -1,7 +1,105 @@
 html {
-   background-color: #0F0E13;
+   background-color: #010038;
 }
 
 main, header, article, section, h1, h2 {
    color: #eee;
 }
+
+body {
+   --almostblack: #0F0E13;
+   --blue: #19cfff;
+}
+
+/* body.light {
+   --bg: #ffffff;
+   --header: var(--almostblack);
+   --textNormal: #222;
+   --textTitle: #222;
+   --textLink: #1197ba;
+   --hr: hsla(0, 0%, 0%, 0.2);
+   --inlineCode-bg: rgba(255, 229, 100, 0.2);
+   --inlineCode-text: #1a1a1a;
+ }
+ 
+ body.dark {
+   -webkit-font-smoothing: antialiased;
+ 
+   --bg: #282c35;
+   --header: #ffffff;
+   --textNormal: rgba(255, 255, 255, 0.88);
+   --textTitle: #ffffff;
+   --textLink: var(--pink);
+   --hr: hsla(0, 0%, 100%, 0.2);
+   --inlineCode-bg: hsl(222, 14%, 25%);
+   --inlineCode-text: #e6e6e6;
+ } */
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: white;
+  background: none;
+  font-family: Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace;
+  font-feature-settings: normal;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  overflow: auto;
+  padding: 1.3125rem;
+}
+
+pre[class*='language-']::-moz-selection {
+  /* Firefox */
+  background: hsl(207, 4%, 16%);
+}
+
+pre[class*='language-']::selection {
+  /* Safari */
+  background: hsl(207, 4%, 16%);
+}
+
+/* Text Selection colour */
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection {
+  text-shadow: none;
+  background: hsla(0, 0%, 100%, 0.15);
+}
+
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection {
+  text-shadow: none;
+  background: hsla(0, 0%, 100%, 0.15);
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  border-radius: 0.3em;
+  background: #aaa;
+  color: #eee;
+  padding: 0.15em 0.2em 0.05em;
+  white-space: normal;
+}
+/* :not(pre) > code[class*='language-'] {
+  border-radius: 0.3em;
+  background: var(--inlineCode-bg);
+  color: var(--inlineCode-text);
+  padding: 0.15em 0.2em 0.05em;
+  white-space: normal;
+} */
