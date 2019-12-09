@@ -11,6 +11,10 @@ body {
    --blue: #19cfff;
 }
 
+
+a {
+  color: hsl(0, 100%, 70%);
+}
 /* body.light {
    --bg: #ffffff;
    --header: var(--almostblack);
