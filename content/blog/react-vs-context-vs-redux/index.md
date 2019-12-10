@@ -22,7 +22,7 @@ The most common reason that I see React developers use a third party library lik
 
 Here's a common example of a basic Redux set up to avoid prop drilling (keep in mind that this is a tiny example, so the _drilling_ will be fairly shallow):
 
-<iframe src="https://stackblitz.com/edit/react-avoid-prop-drilling?embed=1&file=index.js&hideExplorer=1&view=editor" width="600" height="400"></iframe>
+<iframe src="https://stackblitz.com/edit/redux-avoid-prop-drilling?embed=1&file=index.js&hideExplorer=1&view=editor" width="600" height="400"></iframe>
 
 The Redux store, in this case, consists of a `search` string, an array of `episodes` (thanks to the lovely [Rick and Morty API](https://rickandmortyapi.com/)) and an `error` object. The first question I'd urge you to think about is why any of these things need to be in the store, or in other words, global state. Particularly something as ephemeral as a search string. 
 
