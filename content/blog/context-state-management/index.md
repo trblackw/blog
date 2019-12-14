@@ -37,7 +37,7 @@ My file structure for these projects looks like this:
  - hooks/
 ```
 
-In <mark>context/index.js</mark> I create an instance of context using React.createContext:
+In `context/index.js` I create an instance of context using React.createContext:
 
 ```jsx{numberLines: true}
 import { createContext } from "react";
@@ -49,7 +49,7 @@ const UserContext = createContext({
 export default UserContext;
 ```
 
-Then, in <mark>App.js</mark> I define my `initialState`, storing in it the returned value of the useContext hook:
+Then, in `App.js` I define my `initialState`, storing in it the returned value of the useContext hook:
 
 ```jsx{numberLines: true}
 const App = () => {
@@ -78,7 +78,7 @@ const [state, dispatch] = useReducer(UserReducer, initialState)
 <UserContext.Provider value={{ currentUser: state.currentUser, dispatch }}
 ```
 
-Now let’s take a look at my reducer in <mark>reducer/index.js</mark>:
+Now let’s take a look at my reducer in `reducer/index.js`:
 
 ```jsx{numberLines: true}
 import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from "./constants";
@@ -126,7 +126,7 @@ Also, what the heck is this console.log business? Well, if you’ve ever used th
 
 If you haven’t been able to tell already, I’m a huge fan of deconstruction and have deconstructed my “payload” (if you’re familiar with Redux) in the parameters of my reducer function. Notice, however, that overall, this follows a very similar structure as a Redux reducer — mainly because it’s just plain JavaScript.
 
-Here’s one of my actions in <mark>actions/index.js</mark>:
+Here’s one of my actions in `actions/index.js`:
 
 ```javascript{numberLines: true}
 export const registerUser = async (user, dispatch) => {
@@ -159,7 +159,7 @@ return localStorage.setItem( "auth-user", JSON.stringify({
 
 If you’ve ever used [redux-thunks](https://www.npmjs.com/package/redux-thunk), that’s essentially the form of each of my action creators. Notice how I’m accepting the dispatch function as an argument, which is passed to the action from the component in which it’s called.
 
-So, how the heck do you actually make use of all this? Well, here’s how I use it in my <mark>components/Register.js</mark> (making use of the action creator defined above):
+So, how the heck do you actually make use of all this? Well, here’s how I use it in my `components/Register.js` (making use of the action creator defined above):
 
 ```javascript{numberLines: true}
 import React, { useState } from "react";

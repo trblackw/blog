@@ -11,7 +11,7 @@ Modals have become integral parts of applications across all devices, but their 
 
 As the title suggests, there will be no class-based components involved, as I’m an avid fan of React Hooks (if you don’t know about Hooks, check out one of my other blog posts or reference the React docs to learn more about them). So let’s get started. We will make use of my favorite library when it comes to styling React, [styled-components](https://www.npmjs.com/package/styled-components).
 
-For simplicity, I’m going to explain the use-case for this type of the component in the context of a React app built with create-react-app. In your public directory (where you likely rarely ever venture), inside <mark>index.html</mark> add an anchor point for our soon-to-be Modal component right below that for our App.
+For simplicity, I’m going to explain the use-case for this type of the component in the context of a React app built with create-react-app. In your public directory (where you likely rarely ever venture), inside `index.html` add an anchor point for our soon-to-be Modal component right below that for our App.
 
 ```html{numberLines: true}
 ...
@@ -20,7 +20,7 @@ For simplicity, I’m going to explain the use-case for this type of the compone
 ...
 ```
 
-And that’s it! That’s all there is to it. Just kidding. Back in our src directory, let’s create our Modal component in <mark>src/Modal.js</mark>:
+And that’s it! That’s all there is to it. Just kidding. Back in our src directory, let’s create our Modal component in `src/Modal.js`:
 
 ```jsx{numberLines: true}
 import React, { useEffect } from "react";
@@ -126,7 +126,7 @@ I’d rather quote others than explain it myself, because, full transparency, ju
 Okay, so now that we have a general understanding of Portals in React, let’s walk through the Portal component defined above. Notice how I’m destructuring children from props and then pass it as the first argument to `React.createPortal`.
 
 Again, quoting the React documentation:
->The first argument is any [renderable React child](https://reactjs.org/docs/react-component.html#render), such as an element, string, or fragment. The second argument is a DOM element [acting as a container for the React child]”. That ‘container’ is created at the top of the Portal component, right after grabbing the anchor point we established previously in <mark>index.html</mark>.
+>The first argument is any [renderable React child](https://reactjs.org/docs/react-component.html#render), such as an element, string, or fragment. The second argument is a DOM element [acting as a container for the React child]”. That ‘container’ is created at the top of the Portal component, right after grabbing the anchor point we established previously in `index.html`.
 
 Within the first useEffect Hook, which is equivalent to the componentDidMount life-cycle method in class-based React, we mount our container element. In the second useEffect, similar to componentWillUnmount, we dismount, or clean up after ourselves essentially.
 

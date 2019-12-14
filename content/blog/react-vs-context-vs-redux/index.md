@@ -1,7 +1,7 @@
 ---
 title: You probably don't need Redux...or Context!
-date: 2019-11-06T08:28:00+0000
-description: A simple reminder of how awesome raw React can be for your every day applications
+date: 2019-12-11T08:28:00+0000
+description: A simple reminder of that React, itself, is a state manager
 ---
 [bobby]: ./bobby.jpg
 
