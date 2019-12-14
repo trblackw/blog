@@ -76,7 +76,7 @@ const App: React.FC = (): JSX.Element => (
 Pretty straightforward. This is a very standard navigation set up. However, right now there is no incorporation of authentication logic within our navigation, nor does the router care (or know about) a user's role as they navigate the app.
 
 So we snap our fingers and have authentication tokens set up on the backend. Now we want to make sure that a user is logged in before viewing any of the app's content.
-Let's do a couple of things to achieve this.
+Let's do a couple of things to achieve this:
 1) define enums for our auth & non-auth routes (this isn't necessary, but I prefer it over passing strings around)
 2) define a separate component to handle the redirect logic for non-auth users accessing auth routes
 
@@ -93,10 +93,10 @@ enum NonAuthRoutes {
 	unauthorized = '/unauthorized'
 }
 ```
+## AuthRoute.tsx
 
 Now let's create an `AuthRoute` component. We'll also add an `Unauthorized` view later that we'll show the user if they attempt to access something they're not supposed to (ideally the routing logic would prevent the user from ever seeing it, but it's a 'nice to have' just in case)
 
-## AuthRoute.tsx
 
 ```jsx
 import { RouteComponentProps } from 'react-router-dom';
@@ -109,7 +109,8 @@ interface Props {
 };
 
 const AuthRoute = ({ Component, path, exact = false }: Props): JSX.Element => {
-	const isAuthed: boolean = !!localStorage.getItem(ACCESS_TOKEN);
+	const isAuthed = !!localStorage.getItem(ACCESS_TOKEN);
+	const message = 'Please log in to view this page'
 	return (
 		<Route
 			exact={exact}
@@ -121,7 +122,10 @@ const AuthRoute = ({ Component, path, exact = false }: Props): JSX.Element => {
 					<Redirect
 						to={{
 							pathname: NonAuthRoutes.login,
-							state: { message: 'Please log in to view this page', requestedPath: path }
+							state: { 
+								message, 
+								requestedPath: path
+							}
 						}}
 					/>
 				)
@@ -178,14 +182,13 @@ interface Props {
 	Component: React.FC<RouteComponentProps>;
 	path: string;
 	exact?: boolean;
-	//although these are strings, if you recall they're comprised of our UserRoles enum
 	requiredRoles: string[];
 }
 const AuthRoute = ({ Component, path, exact = false, requiredRoles }: Props): JSX.Element => {
-	const isAuthed: boolean = !!localStorage.getItem(ACCESS_TOKEN);
+	const isAuthed = !!localStorage.getItem(ACCESS_TOKEN);
 	const { userRole }: useContext(UserRoleContext);
-	const userHasRequiredRole: boolean = requiredRoles.includes(userRole);
-
+	const userHasRequiredRole = requiredRoles.includes(userRole);
+	const message = userHasRequiredRole ? 'Please log in to view this page' : "You can't be here!"
 	return (
 		<Route
 			exact={exact}
@@ -196,8 +199,13 @@ const AuthRoute = ({ Component, path, exact = false, requiredRoles }: Props): JS
 				) : (
 					<Redirect
 						to={{
-							pathname: userHasRequiredRole ? NonAuthRoutes.signin : NonAuthRoutes.unauthorized,
-							state: { message: 'Please log in to view this page', requestedPath: path }
+							pathname: userHasRequiredRole ? 
+							NonAuthRoutes.signin : 
+							NonAuthRoutes.unauthorized,
+							state: { 
+								message,
+								requestedPath: path 
+							}
 						}}
 					/>
 				)
@@ -212,22 +220,35 @@ const App: React.FC = (): JSX.Element => (
     <Router>
         <Navigation />
         <Switch>
-            <Route exact path={NonAuthRoutes.login} component={Login} />
-			<AuthRoute path={AuthRoutes.dashboard}
+			<Route 
+				exact path={NonAuthRoutes.login} 
+				component={Login} 
+			/>
+			<AuthRoute 
+				path={AuthRoutes.dashboard}
 				Component={Dashboard} 
 				requiredRoles={[
 					String(UserRoles.admin),
 					String(UserRoles.superAdmin)
 				]} />
-			<AuthRoute path={AuthRoutes.preferences}
+			<AuthRoute 
+				path={AuthRoutes.preferences}
 				Component={Preferences} 
 				requiredRoles={[String(UserRoles.user)]}
 			/>
-            <Route path={AuthRoutes.support} component={Support} />
-			<AuthRoute path={AuthRoutes.account} Component={Account} 
+			<Route 
+				path={AuthRoutes.support} 
+				component={Support} 
+			/>
+			<AuthRoute 
+				path={AuthRoutes.account} 
+				Component={Account} 
 				requiredRoles={[String(UserRoles.user)]}
 			/>
-			<Route path={NonAuthRoutes.unauthorized} component={Unauthorized} />
+			<Route 
+				path={NonAuthRoutes.unauthorized} 
+				component={Unauthorized} 
+			/>
 			<Route component={NotFound} />
         </Switch>
     </Router>
