@@ -67,7 +67,7 @@ const App: React.FC = (): JSX.Element => (
             <Route path='/dashboard' component={Dashboard} />
             <Route path='/preferences' component={Preferences} />
             <Route path='/support' component={Support} />
-			<Route path='/account' component={Account}>
+			<Route path='/account' component={Account} />
 			<Route component={NotFound} />
         </Switch>
     </Router>
@@ -164,7 +164,7 @@ const App: React.FC = (): JSX.Element => (
             <AuthRoute path={AuthRoutes.dashboard} Component={Dashboard} />
             <AuthRoute path={AuthRoutes.preferences} Component={Preferences} />
             <Route path={AuthRoutes.support} component={Support} />
-			<AuthRoute path={AuthRoutes.account} Component={Account}>
+			<AuthRoute path={AuthRoutes.account} Component={Account} />
 			<Route path={NonAuthRoutes.unauthorized} component={Unauthorized} />
 			<Route component={NotFound} />
         </Switch>
@@ -206,7 +206,34 @@ const AuthRoute = ({ Component, path, exact = false, requiredRoles }: Props): JS
 	);
 };
 ```
-So now, the component takes a `requiredRoles` array, which will include the roles the user must have in order to view a given page. Now, not only do we want to make sure our user is authenticated, we also want to make sure that they have the rights to view whatever it is they're trying to view. Notice now that the destination for our `Redirect` component is also determined by whether or not the user has the required role.
+So now, the component takes a `requiredRoles` array, which will include the roles the user must have in order to view a given page. And then now we can pass the required roles for each component:
+```jsx
+const App: React.FC = (): JSX.Element => (
+    <Router>
+        <Navigation />
+        <Switch>
+            <Route exact path={NonAuthRoutes.login} component={Login} />
+			<AuthRoute path={AuthRoutes.dashboard}
+				Component={Dashboard} 
+				requiredRoles={[
+					String(UserRoles.admin),
+					String(UserRoles.superAdmin)
+				]} />
+			<AuthRoute path={AuthRoutes.preferences}
+				Component={Preferences} 
+				requiredRoles={[String(UserRoles.user)]}
+			/>
+            <Route path={AuthRoutes.support} component={Support} />
+			<AuthRoute path={AuthRoutes.account} Component={Account} 
+				requiredRoles={[String(UserRoles.user)]}
+			/>
+			<Route path={NonAuthRoutes.unauthorized} component={Unauthorized} />
+			<Route component={NotFound} />
+        </Switch>
+    </Router>
+)
+```
+ Now, not only do we want to make sure our user is authenticated, we also want to make sure that they have the rights to view whatever it is they're trying to view. Notice now that the destination for our `Redirect` component is also determined by whether or not the user has the required role.
 
 And that's pretty much it. I've been really enjoying this set up in projects I'm working on and wanted to share it with others to see if they could make use of it (or critique it 👀). 
 
