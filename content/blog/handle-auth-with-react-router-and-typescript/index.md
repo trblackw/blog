@@ -155,7 +155,7 @@ const login = () => {
 ## Incorporate AuthRoute into Router
 
 Now that we've got our `AuthRoute` component all set up, let's make use of it in our router:
-```javascript
+```jsx
 ...
 import Unauthorized from 'views/Unauthorized';
 import { AuthRoutes, NonAuthRoutes } from 'api/routes.ts';
@@ -177,7 +177,7 @@ const App: React.FC = (): JSX.Element => (
 ```
 Sweet! Now if a user attempts to access these views without being authenticated, our router will give them the boot back to the login page. Or if a user stumbles across contents they aren't allowed to view, they'll be show an `Unauthorized` view, but what about user roles? Let's assume our app is storing a `userRole` string in `Context`. Let's incorporate logic into our `AuthRoute` component to handle role checking before routing the user to a given view:
 
-```javascript
+```jsx
 interface Props {
 	Component: React.FC<RouteComponentProps>;
 	path: string;
