@@ -20,6 +20,9 @@ parnassusTheme.overrideThemeStyles = () => {
     'blockquote.translation': {
       fontSize: '1em',
     },
+    'p code': {
+    fontSize: '1rem',
+  }
   }
 }
 
