@@ -142,8 +142,9 @@ const history = useHistory()
 
 const login = () => {
 	...
-
-	history.push(location.state?.requestedPath ?? AuthRoutes.projects)
+	//technically we'd need to check user role here before deciding which route
+	//to coalesce to, but you get the idea
+	history.push(location.state?.requestedPath ?? AuthRoutes.dashboard)
 }
 ```
 
