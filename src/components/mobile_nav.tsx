@@ -42,7 +42,7 @@ const NavDropdown: React.FC = (): JSX.Element => {
       <DropdownContent visible={open} id="nav-dropdown-content">
         <ContentItem>
           <ContentButton>
-            <ContentLink to="#">About me 🕵🏻‍</ContentLink>
+            <ContentLink to="/aboutme">About me 🕵🏻‍</ContentLink>
           </ContentButton>
         </ContentItem>
         <ContentItem>
@@ -55,11 +55,11 @@ const NavDropdown: React.FC = (): JSX.Element => {
             <ContentLink to="#">Contact 📬</ContentLink>
           </ContentButton>
         </ContentItem>
-        <ContentItem>
+        {/* <ContentItem>
           <ContentButton>
             <ContentLink to="#">Activity 👨🏻‍💻</ContentLink>
           </ContentButton>
-        </ContentItem>
+        </ContentItem> */}
       </DropdownContent>
     </Dropdown>
   )

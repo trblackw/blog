@@ -31,12 +31,12 @@ const Layout: React.FC<Props> = ({
         >
           <HeaderLink to={`/`}>Tucker Blackwell</HeaderLink>
         </h1>
-          <small style={{color: '#aaa'}}>Psst.. the navigation links are a work in progess!</small>
+        {/* <small style={{color: '#aaa'}}>Psst.. the navigation links are a work in progess!</small>
           <NavDropdown />
 
         <Nav>
           <li>
-            <NavLink to="#">About me 🕵🏻‍</NavLink>
+            <NavLink to="/aboutme">About me 🕵🏻‍</NavLink>
           </li>
           <li>
             <NavLink to="#">Custom Hooks 🧪</NavLink>
@@ -47,7 +47,7 @@ const Layout: React.FC<Props> = ({
           <li>
             <NavLink to="/activity">Activity 👨🏻‍💻</NavLink>
           </li>
-        </Nav>
+        </Nav> */}
       </>
     )
   } else {
@@ -58,7 +58,7 @@ const Layout: React.FC<Props> = ({
             size={30}
             title="Arrow back"
             fontWeight={300}
-            color="#537ec5"
+            color="#8bbabb"
           />
         </HeaderLink>
       </SubHeader>
@@ -82,7 +82,7 @@ export default Layout
 const SubHeader = styled.h1`
   font-family: Merriweather Sans, sans-serif;
   margin-top: 0;
-  color: #19cfff;
+  color: #8bbabb;
 `
 
 const HeaderLink = styled(Link)`
@@ -90,8 +90,10 @@ const HeaderLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   box-shadow: none;
+  color: #eee;
   font-weight: 300;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 `
 const Container = styled.div`
   margin: 0 auto;
@@ -121,9 +123,9 @@ const NavLink = styled(Link)`
   font-weight: bold;
   text-decoration: none;
   box-shadow: none;
-  color: #537ec5;
+  color: #c7f0db;
   &:hover {
-    color: #293a80;
+    color: #8bbabb;
   }
 `
 
@@ -131,9 +133,9 @@ const Footer = styled.footer`
   color: #eee;
 
   a {
-    color: #537ec5;
+    color: #c7f0db;
     &:hover {
-    color: #293a80;
-  }
+      color: #8bbabb;
+    }
   }
 `

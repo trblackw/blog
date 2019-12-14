@@ -6,6 +6,7 @@ import { Link as LinkIcon } from "styled-icons/boxicons-regular/Link"
 import { ArrowBackIos } from "styled-icons/material/ArrowBackIos"
 import { Link } from "gatsby"
 import Loading from "components/loading"
+// https://levelup.gitconnected.com/@tuckerblackwell.dev
 interface GeneralData {
   avatar_url: string
   bio: string
@@ -36,7 +37,7 @@ const Activity: React.FC = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       try {
         const urls = [
           "https://api.github.com/users/trblackw",
