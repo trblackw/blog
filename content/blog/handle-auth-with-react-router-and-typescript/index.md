@@ -73,11 +73,11 @@ const App: React.FC = (): JSX.Element => (
     </Router>
 )
 ```
-Pretty straightforward. This is a very standard navigation set up. However, right now there is incorporation of authentication logic within our navigation, nor does the router care (or know about) a user's role as they navigate the app.
+Pretty straightforward. This is a very standard navigation set up. However, right now there is no incorporation of authentication logic within our navigation, nor does the router care (or know about) a user's role as they navigate the app.
 
 So we snap our fingers and have authentication tokens set up on the backend. Now we want to make sure that a user is logged in before viewing any of the app's content.
 Let's do a couple of things to achieve this.
-1) define enums for our auth & non-auth routes (this isn't necessary, but I prefer it over sharing strings across my apps)
+1) define enums for our auth & non-auth routes (this isn't necessary, but I prefer it over passing strings around)
 2) define a separate component to handle the redirect logic for non-auth users accessing auth routes
 
 ```javascript
@@ -99,11 +99,15 @@ Now let's create an `AuthRoute` component. We'll also add an `Unauthorized` view
 ## AuthRoute.tsx
 
 ```jsx
+import { RouteComponentProps } from 'react-router-dom';
+...
+
 interface Props {
 	Component: React.FC<RouteComponentProps>
 	path: string;
 	exact?: boolean;
-}
+};
+
 const AuthRoute = ({ Component, path, exact = false }: Props): JSX.Element => {
 	const isAuthed: boolean = !!localStorage.getItem(ACCESS_TOKEN);
 	return (
@@ -127,7 +131,7 @@ const AuthRoute = ({ Component, path, exact = false }: Props): JSX.Element => {
 };
 ```
 
-Let's break this component down a bit. If you aren't familiar the `Route` component has a [render prop](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/Route.md#render-func), which allows us to pass in a function that will ultimately return a React component when the location matches the routes `path`. This is an ideal place for checking whether or not a user is authorized to view a given view in our app. This function will also have access to all of the route props that the component would have had access to given it were rendered via the standard `component` prop. After we verify a user is authenticated, we want to pass these props along to the component that's rendered.
+Let's break this component down a bit. If you aren't familiar, the `Route` component from `react-router-dom` has a [render prop](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/Route.md#render-func), which allows us to pass in a function that will ultimately return a React component when the location matches the routes `path`. This is an ideal place for checking whether or not a user is authorized to view a given page in our app. This function will also have access to all of the route props that the component would have had access to if it were rendered via the standard `component` prop. After we verify a user is authenticated, we want to pass these props along to the component that's rendered.
 
 The `Redirect` component has a [to prop](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/Redirect.md#to-string) that isn't just for passing strings, you can also pass an object with properties, two of which I'm making use of in the `AuthRoute` component. `pathname` is pretty straight forward, but we can also pass pieces of state to the destination component. This can be handy if you want to allow the user to return to the view they were attempting to access before their token expired and they were unknowingly logged out.
 
@@ -135,9 +139,11 @@ An example of this could be seen in login logic that navigates the user to a giv
 ```javascript
 const history = useHistory()
 ...
+
 const login = () => {
 	...
-history.push(location.state?.requestedPath ?? AuthRoutes.projects)
+
+	history.push(location.state?.requestedPath ?? AuthRoutes.projects)
 }
 ```
 
@@ -164,7 +170,7 @@ const App: React.FC = (): JSX.Element => (
     </Router>
 )
 ```
-Sweet! Now if a user attempts to access these views without being authenticated, our router will give them the boot back to the login page. Or if a user stumbles across contents they aren't allowed to view, they'll be show an `Unauthorized` view, but what about user roles? Let's assume our app is set up with redux (hooks) and we're storing a `userRole` string that denotes, well, just that. Let's incorporate logic into our `AuthRoute` component to handle role checking before routing the user to a given view:
+Sweet! Now if a user attempts to access these views without being authenticated, our router will give them the boot back to the login page. Or if a user stumbles across contents they aren't allowed to view, they'll be show an `Unauthorized` view, but what about user roles? Let's assume our app is storing a `userRole` string in `Context`. Let's incorporate logic into our `AuthRoute` component to handle role checking before routing the user to a given view:
 
 ```javascript
 interface Props {
@@ -176,7 +182,7 @@ interface Props {
 }
 const AuthRoute = ({ Component, path, exact = false, requiredRoles }: Props): JSX.Element => {
 	const isAuthed: boolean = !!localStorage.getItem(ACCESS_TOKEN);
-	const userRole: string = useSelector(({ userRole }: { userRole: UserRoles }) => String(userRole));
+	const { userRole }: useContext(UserRoleContext);
 	const userHasRequiredRole: boolean = requiredRoles.includes(userRole);
 
 	return (
@@ -199,7 +205,7 @@ const AuthRoute = ({ Component, path, exact = false, requiredRoles }: Props): JS
 	);
 };
 ```
-So now, the component takes a `requiredRoles` array, which will include the roles the user must have in order to view a given page. Now, not only do we want to make sure our user is authenticated, we also want to make sure that have the rights to view whatever it is they're trying to view. Notice now that the destination for our `Redirect` component is also determined by whether or not the user has the required role.
+So now, the component takes a `requiredRoles` array, which will include the roles the user must have in order to view a given page. Now, not only do we want to make sure our user is authenticated, we also want to make sure that they have the rights to view whatever it is they're trying to view. Notice now that the destination for our `Redirect` component is also determined by whether or not the user has the required role.
 
 And that's pretty much it. I've been really enjoying this set up in projects I'm working on and wanted to share it with others to see if they could make use of it (or critique it 👀). 
 
