@@ -11,6 +11,8 @@ Authentication is an integral part of modern day applications but has been a con
 
 Getting straight to it, I'm going to present the most recent setup I've been using for role-based authentication using react-router and TypeScript. That being said, this is not an intro to either of these technologies. In other words, the examples I'll provide will assume a base-level understanding of how they work.
 
+Just a quick note before we get into code. This system is definitely not, full-stop, all you will need to effectively authenticate your production-level applications. This will not incorporate Redux or any other state management solution, nor will it address all the pieces of the puzzle. My goal is that it will serve as a base for others to build off of.
+
 __NOTE: For simplicity, example code will use local storage for token management. I don't recommend this approach for production applications__
 
 ******
