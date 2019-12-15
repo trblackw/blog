@@ -6,7 +6,7 @@ import { Link as LinkIcon } from "styled-icons/boxicons-regular/Link"
 import { ArrowBackIos } from "styled-icons/material/ArrowBackIos"
 import { Link } from "gatsby"
 import Loading from "components/loading"
-// https://levelup.gitconnected.com/@tuckerblackwell.dev
+
 interface GeneralData {
   avatar_url: string
   bio: string

@@ -171,3 +171,20 @@ pre[data-line] {
 hr {
   background-color: #eee;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-timing-function: ease-in-out;
+  transform-origin: bottom center;
+  animation-name: fadeIn;
+  animation-duration: 250ms;
+}

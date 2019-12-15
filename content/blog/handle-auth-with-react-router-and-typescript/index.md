@@ -9,7 +9,7 @@ description: Defining a single, strongly typed component to handle role-based na
 
 Authentication is an integral part of modern day applications but has been a consistent pain point for me as a React developer and I think it's safe to say I'm not alone in this plight. 
 
-Getting straight to it, I'm going to present the most recent setup I've been using for role-based authentication using react-router and TypeScript. That being said, this is not an intro to either of these technologies. In other words, the examples I'll provide will assume a base-level understanding of how they work.
+I'm going to present the most recent setup I've been using for role-based authentication using react-router and TypeScript. That being said, this is not an intro to either of these technologies. In other words, the examples I'll provide will assume a base-level understanding of how they work.
 
 Just a quick note before we get into code. This system is definitely not, full-stop, all you will need to effectively authenticate your production-level applications. This will not incorporate Redux or any other state management solution, nor will it address all the pieces of the puzzle. My goal is that it will serve as a base for others to build off of.
 
