@@ -5,6 +5,7 @@ import Layout from "components/layout"
 import SEO from "components/seo"
 import { rhythm } from "utils/typography"
 import styled from "styled-components"
+import { formatReadingTime } from "utils"
 
 const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
   <Layout location={location} title={data.site.siteMetadata.title}>
@@ -19,7 +20,19 @@ const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
                 {node.frontmatter.title || node.fields.slug}
               </BlogLink>
             </BlogPreview>
-            <BlogDate>{node.frontmatter.date}</BlogDate>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+              }}
+            >
+              <BlogDate>{node.frontmatter.date}</BlogDate>
+              <small style={{ marginLeft: "5px" }}>
+                {formatReadingTime(node.fields.readingTime.text)}
+              </small>
+            </div>
           </header>
           <section>
             <p
@@ -54,6 +67,12 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+          }
+          fields {
+            slug
+            readingTime {
+              text
+            }
           }
         }
       }

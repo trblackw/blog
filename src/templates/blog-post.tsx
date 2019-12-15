@@ -5,6 +5,7 @@ import Layout from "components/layout"
 import SEO from "components/seo"
 import { rhythm, scale } from "utils/typography"
 import styled from "styled-components"
+import { formatReadingTime } from "utils"
 
 interface Props {
   data: { [key: string]: any }
@@ -33,7 +34,19 @@ const BlogPostTemplate: React.FC<Props> = ({
       <article>
         <header>
           <PostTitle>{post.frontmatter.title}</PostTitle>
-          <PostDate>{post.frontmatter.date}</PostDate>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
+            }}
+          >
+            <PostDate>{post.frontmatter.date}</PostDate>
+            <small style={{ marginTop: "5px", marginLeft: "5px" }}>
+              {formatReadingTime(post.fields.readingTime.text)}
+            </small>
+          </div>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <Divider />
@@ -82,6 +95,12 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+      fields {
+        slug
+        readingTime {
+          text
+        }
       }
     }
   }

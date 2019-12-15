@@ -71,6 +71,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
+    `gatsby-remark-reading-time`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
