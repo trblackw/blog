@@ -58,10 +58,10 @@ const Layout: React.FC<Props> = ({
                 />
               </SocialLink>
             </li>
-            <li style={{ marginTop: "3px" }}>
+            <li style={{ marginTop: windowWidth <= 415 ? '5px' : '3px' }}>
               <SocialLink href="https://github.com/trblackw" target="_blank">
                 <GithubSquare
-                  size={50}
+                  size={49}
                   title="Github"
                   fontWeight={300}
                   color="#eee"
