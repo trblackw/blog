@@ -8,13 +8,11 @@ _Built with [Gatsby's starter blog](https://github.com/gatsbyjs/gatsby-starter-b
 
 **🚀Run Locally**
 
-    ```
     git clone git@github.com:trblackw/blog.git;
-    #using yarn
+    # using yarn
     cd blog && yarn && yarn develop
-    #using npm
+    # using npm
     cd blog && npm i && npm run develop
-    ```
 
 ## 💫 Hosted & Deployed w/ Netlify
 
