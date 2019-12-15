@@ -8,7 +8,7 @@ _Built with [Gatsby's starter blog](https://github.com/gatsbyjs/gatsby-starter-b
 
 **🚀Run Locally**
 
-    ```shell
+    ```
     git clone git@github.com:trblackw/blog.git;
     #using yarn
     cd blog && yarn && yarn develop
