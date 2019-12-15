@@ -14,7 +14,7 @@ _Built with [Gatsby's starter blog](https://github.com/gatsbyjs/gatsby-starter-b
     # using npm
     cd blog && npm i && npm run develop
 
-## 💫 Hosted & Deployed w/ Netlify
+**💫 Hosted & Deployed w/ Netlify**
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e73e2666-7ddc-4f1b-924b-daabc6b877bf/deploy-status)](https://app.netlify.com/sites/priceless-visvesvaraya-deb91b/deploys)
 
