@@ -6,6 +6,7 @@ import SEO from "components/seo"
 import { rhythm, scale } from "utils/typography"
 import styled from "styled-components"
 import { formatReadingTime } from "utils"
+import useViewport from "hooks/useViewport"
 
 interface Props {
   data: { [key: string]: any }
@@ -25,6 +26,7 @@ const BlogPostTemplate: React.FC<Props> = ({
   const siteTitle: string = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const { markdownRemark: post } = data
+  const [{ width: windowWidth }] = useViewport()
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -43,9 +45,9 @@ const BlogPostTemplate: React.FC<Props> = ({
             }}
           >
             <PostDate>{post.frontmatter.date}</PostDate>
-            <small style={{ marginTop: "5px", marginLeft: "5px" }}>
+            <ReadTime marginTop={windowWidth > 415 ? "5px" : undefined}>
               {formatReadingTime(post.fields.readingTime.text)}
-            </small>
+            </ReadTime>
           </div>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -126,4 +128,8 @@ const Ul = styled.ul`
   list-style: none;
   padding: 0;
   color: #eee;
+`
+const ReadTime = styled.small<{ marginTop?: string }>`
+  margin-left: 5px;
+  ${({ marginTop }) => marginTop && `margin-top: ${marginTop}`}
 `
