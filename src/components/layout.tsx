@@ -40,7 +40,7 @@ const Layout: React.FC<Props> = ({
             Tucker Blackwell
             {windowWidth <= 500 && emailCopied && (
               <CopiedEmailAlert className="fade-in">
-                Email copied!
+                Email address copied!
               </CopiedEmailAlert>
             )}
           </HeaderLink>
@@ -91,7 +91,7 @@ const Layout: React.FC<Props> = ({
                   }, 1500)
                 }}
               >
-                <SocialLink href="#">
+                <SocialLink>
                   <Envelope
                     size={55}
                     title="Gmail"
