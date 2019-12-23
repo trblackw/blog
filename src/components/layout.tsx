@@ -186,6 +186,7 @@ const SocialLink = styled.a`
   position: relative;
   &:hover {
     color: #8bbabb;
+    cursor: pointer;
   }
   text-decoration: none;
 
