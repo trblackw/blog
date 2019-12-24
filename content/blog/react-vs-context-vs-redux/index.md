@@ -48,7 +48,7 @@ I can almost guarantee you that more of your application consists of ephemeral s
 
 ## Ecosytem Pressures
 
-As React developers, there are tons of preachy opinions that constantly overshadow the work we do and how we architecture applications, and there's been many a time where I've incorporated Redux merely because it was a popular tool and I could add it to my resume. But, is it really benefiting our applications?
+As React developers, there are tons of preachy opinions that constantly overshadow the work we do and how we architect applications, and there's been many a time where I've incorporated Redux merely because it was a popular tool and I could add it to my resume. But, what I didn't stop to think about was whether or not it actually added benefit to what I was building.
 
 Right now, if you google "React state management", your results are going to be across the board. "Context makes Redux obsolete!!!", "MobX provides groundbreaking new observer paradigm for state management", "New Redux hooks API brings a total revamp to React state management!" (all of these are made up titles). When I mentioned earlier that one of my favorite parts about React is that it's unopinionated, that certainly does not apply to the React ecosystem and it's one of the more frustrating pain-points of being a React dev in late 2019.
 
