@@ -5,7 +5,7 @@ import Layout from "components/layout"
 import SEO from "components/seo"
 import { rhythm, scale } from "utils/typography"
 import styled from "styled-components"
-import { formatReadingTime } from "utils"
+import { formatReadingTime, scrollPageTo } from "utils"
 import useViewport from "hooks/useViewport"
 
 interface Props {
@@ -51,12 +51,12 @@ const BlogPostTemplate: React.FC<Props> = ({
           </div>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <ScrollToTop onClick={() => scrollPageTo('top')}>Back to beginning 👆🏻</ScrollToTop>
         <Divider />
         <footer>
           <Bio />
         </footer>
       </article>
-
       <nav>
         <Ul>
           <li>
@@ -132,4 +132,13 @@ const Ul = styled.ul`
 const ReadTime = styled.small<{ marginTop?: string }>`
   margin-left: 5px;
   ${({ marginTop }) => marginTop && `margin-top: ${marginTop}`}
+`
+const ScrollToTop = styled.button`
+  background-color: transparent;
+  color: #c7f0db;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 13px;
 `

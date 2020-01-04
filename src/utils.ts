@@ -15,3 +15,7 @@ export const formatReadingTime = (timeString: string): string => {
   }
   return `${new Array(Number(beers)).fill("🍺").join(" ")} ${minutes} min read`
 }
+
+export const scrollPageTo = (position: 'top' | 'bottom') => {
+	window.scrollTo({ top: position === 'bottom' ? document.body.scrollHeight : 0, left: 0, behavior: 'smooth' })
+}
