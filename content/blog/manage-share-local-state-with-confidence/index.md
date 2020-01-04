@@ -1,7 +1,7 @@
 ---
-title: Managing & sharing local state with confidence
+title: Manage & share local state with confidence
 date: 2020-01-04T00:00:00+0000
-description: Pass around stateful CRUD operations safer with TypeScript
+description: Pass stateful CRUD operations from parent to child more safely with TypeScript
 ---
 
 Recently, I've been making it a point to avoid using Redux or other state management solutions for scenarios or pieces of state that don't really require it. I'm not going to expound upon that here, though. If you'd like to learn more about why I feel this way, check out a previous [post](https://www.tuckerblackwell.com/react-vs-context-vs-redux/) of mine. I'd like to share the ways in which I handle CRUD (**C**reate, **R**ead, **U**pdate, **D**elete) in my apps that's void of external state management (with the help of TypeScript). The logic itself isn't unique, but hopefully this will get you thinking more about how to manage local state in your components.
