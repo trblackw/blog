@@ -64,7 +64,7 @@ type CreatePostRequest = <Omit<Post, 'id'>>
 const initialFormState: CreatePostRequest = { content: '', date: new Date() }
 
 const CreatePost: React.FC<Props> = ({ setPosts }): JSX.Element => {
-    const [newPost, setNewPost] = useState<Omit<Post, 'id'>>(initialFormState);
+    const [newPost, setNewPost] = useState<CreatePostRequest>(initialFormState);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
 
@@ -86,10 +86,12 @@ const CreatePost: React.FC<Props> = ({ setPosts }): JSX.Element => {
     }
 
     ...
-
-    <form onSubmit={createPost}>
-        ...
-    </form>
+    
+    return (
+        <form onSubmit={createPost}>
+            ...
+        </form>
+    )
 }
 ```
 
@@ -106,15 +108,17 @@ Let's define some CRUD operators that we can pass around with a bit more assuran
 ```jsx
 //App.tsx
 const addPostToLocalState = (newPost: Post) => {
-    setPosts(prevPosts => [...prevPosts, newPost])
+  setPosts(prevPosts => [...prevPosts, newPost])
 }
 
 const updatePostInLocalState = (updatedPost: Post) => {
-    setPosts(prevPosts => prevPosts.map(post => post.id === updatedPost.id ? updatedPost : post))
+  setPosts(prevPosts =>
+    prevPosts.map(post => (post.id === updatedPost.id ? updatedPost : post))
+  )
 }
 
 const deletePostFromLocalState = (postId: string) => {
-    setPosts(prevPosts => prevPosts.filter(({ id }) => id !== postId))
+  setPosts(prevPosts => prevPosts.filter(({ id }) => id !== postId))
 }
 ```
 
