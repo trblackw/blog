@@ -5,7 +5,6 @@ description: Define and share your app's Firestore instance using React Context 
 ---
 
 [firestore-react]: ./firestore_react.png
-
 ![firestore-react][firestore-react]
 
 # Cloud Firestore
