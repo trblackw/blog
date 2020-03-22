@@ -65,10 +65,8 @@ pre[class*='language-'] ::selection {
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {
-  border-radius: 0.3em;
-  background: #aaa;
-  color: #eee;
-  padding: 0.15em 0.2em 0.05em;
+  color: #C3F4DE;
+  font-weight: 300;
   white-space: normal;
 }
 .token.attr-name {
@@ -107,7 +105,7 @@ pre[class*='language-'] ::selection {
 .token.selector,
 .token.doctype {
   color: rgb(199, 146, 234);
-  font-style: 'italic';
+  font-style: italic;
 }
 
 .token.class-name {
