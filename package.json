@@ -36,6 +36,7 @@
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
     "react-loading": "^2.0.3",
+    "react-pdf": "^4.1.0",
     "react-syntax-highlighter": "^11.0.2",
     "react-typography": "^0.16.19",
     "styled-components": "^4.4.0",
@@ -47,6 +48,7 @@
   },
   "devDependencies": {
     "@types/react-helmet": "^5.0.12",
+    "@types/react-pdf": "^4.0.3",
     "@types/styled-components": "^4.1.19",
     "prettier": "^1.18.2",
     "typescript": "^3.6.4"

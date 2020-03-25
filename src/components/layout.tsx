@@ -15,11 +15,7 @@ interface Props {
   readonly title: string
   readonly children: ReactNode
 }
-const Layout: React.FC<Props> = ({
-  location,
-  title,
-  children,
-}): JSX.Element => {
+const Layout: React.FC<Props> = ({ location, title, children }): JSX.Element => {
   const [emailCopied, setEmailCopied] = useState<boolean>(false)
   const [{ width: windowWidth }] = useViewport()
   //@ts-ignore
@@ -39,46 +35,23 @@ const Layout: React.FC<Props> = ({
           <HeaderLink to={`/`}>
             Tucker Blackwell
             {windowWidth <= 500 && emailCopied && (
-              <CopiedEmailAlert className="fade-in">
-                Email address copied!
-              </CopiedEmailAlert>
+              <CopiedEmailAlert className="fade-in">Email address copied!</CopiedEmailAlert>
             )}
           </HeaderLink>
           <Nav>
-            <li>
-              <SocialLink
-                href="https://levelup.gitconnected.com/@tuckerblackwell.dev"
-                target="_blank"
-              >
-                <MediumSquare
-                  size={55}
-                  title="Medium"
-                  fontWeight={300}
-                  color="#eee"
-                />
-              </SocialLink>
-            </li>
-            <li style={{ marginTop: windowWidth <= 415 ? '5px' : '3px' }}>
+            <li style={{ marginTop: windowWidth <= 415 ? "5px" : "3px" }}>
               <SocialLink href="https://github.com/trblackw" target="_blank">
-                <GithubSquare
-                  size={49}
-                  title="Github"
-                  fontWeight={300}
-                  color="#eee"
-                />
+                <GithubSquare size={49} title="Github" fontWeight={300} color="#eee" />
               </SocialLink>
             </li>
             <li>
-              <SocialLink
-                href="https://www.linkedin.com/in/tucker-blackwell-686b82146/"
-                target="_blank"
-              >
-                <LinkedinSquare
-                  size={55}
-                  title="LinkedIn"
-                  fontWeight={300}
-                  color="#eee"
-                />
+              <SocialLink href="https://www.linkedin.com/in/tucker-blackwell-686b82146/" target="_blank">
+                <LinkedinSquare size={55} title="LinkedIn" fontWeight={300} color="#eee" />
+              </SocialLink>
+            </li>
+            <li>
+              <SocialLink href="https://levelup.gitconnected.com/@tuckerblackwell.dev" target="_blank">
+                <MediumSquare size={55} title="Medium" fontWeight={300} color="#eee" />
               </SocialLink>
             </li>
             <li>
@@ -92,20 +65,16 @@ const Layout: React.FC<Props> = ({
                 }}
               >
                 <SocialLink>
-                  <Envelope
-                    size={55}
-                    title="Gmail"
-                    fontWeight={300}
-                    color="#eee"
-                  />
+                  <Envelope size={55} title="Gmail" fontWeight={300} color="#eee" />
                   {windowWidth > 500 && emailCopied && (
-                    <CopiedEmailAlert className="fade-in">
-                      Email copied to clipboard!
-                    </CopiedEmailAlert>
+                    <CopiedEmailAlert className="fade-in">Email copied to clipboard!</CopiedEmailAlert>
                   )}
                 </SocialLink>
               </CopyToClipboard>
             </li>
+            {/*<li style={{ marginBottom: '10px'}}>*/}
+            {/*  <ResumeLink to="">Resume</ResumeLink>*/}
+            {/*</li>*/}
           </Nav>
         </h1>
       </>
@@ -114,12 +83,7 @@ const Layout: React.FC<Props> = ({
     header = (
       <SubHeader>
         <HeaderLink to={`/`}>
-          <ArrowBackIos
-            size={30}
-            title="Arrow back"
-            fontWeight={300}
-            color="#8bbabb"
-          />
+          <ArrowBackIos size={30} title="Arrow back" fontWeight={300} color="#8bbabb" />
         </HeaderLink>
       </SubHeader>
     )
@@ -154,8 +118,7 @@ const HeaderLink = styled(Link)`
   box-shadow: none;
   color: #eee;
   font-weight: 300;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 `
 const Container = styled.div`
   margin: 0 auto;
@@ -213,4 +176,12 @@ const CopiedEmailAlert = styled.span`
   font-size: 12px !important;
   color: lightgray;
   float: right;
+`
+
+const ResumeLink = styled(Link)`
+  font-size: 12px;
+  font-weight: 500;
+  color: #C3F4DE;
+  border-bottom: none;
+  text-decoration: none;
 `
