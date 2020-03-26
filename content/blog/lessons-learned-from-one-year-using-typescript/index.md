@@ -3,6 +3,8 @@ title: Lessons I've Learned After a Year of Using TypeScript
 date: "2020-03-25T00:00:00+0000"
 description: "How my experience with TypeScript has made me a better developer"
 ---
+[react-typescript]: ./react-typescript.png
+![react-typescript][react-typescript]
 
 As the title suggests, I've been using TypeScript for about a year and I'd like to share some lessons I've learned along the way. TypeScript, as with most things in life,
 requires time, patience and experience to truly grasp how amazing it is. I'm still constantly learning new things about how the TypeScript compiler works and better ways
@@ -62,8 +64,7 @@ const Register: React.FC = (): JSX.Element => {
   form.email = 2 // Error: type number is not assignable to type string (paraphrased error)
 }
 ```
-However, this isn’t the case for React component props. Props should always be explicitly type because where they're defined is outside of a 
-component’s scope and TS is therefore not able make any type inference about them.
+Note however, this isn't the case for React component props. Props should always be explicitly type because where they're defined is outside of a consuming component's scope and TS is therefore not able make any type inference about them.
 
 ## Define types with others in mind
 
