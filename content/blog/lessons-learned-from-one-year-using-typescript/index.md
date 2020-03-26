@@ -1,7 +1,7 @@
 ---
-title: TypeScript Lessons I've Learned After a Year of Use
+title: Lessons I've Learned After a Year of Using TypeScript
 date: "2020-03-25T00:00:00+0000"
-description: "Lessons I've Learned After a Year of Using TypeScript"
+description: "How my experience with TypeScript has made me a better developer"
 ---
 
 As the title suggests, I've been using TypeScript for about a year and I'd like to share some lessons I've learned along the way. TypeScript, as with most things in life,
