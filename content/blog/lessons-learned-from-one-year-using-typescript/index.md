@@ -10,8 +10,7 @@ As the title suggests, I've been using TypeScript for about a year and I'd like 
 requires time, patience and experience to truly grasp how amazing it is. I'm still constantly learning new things about how the TypeScript compiler works and better ways
 to use types in my code. These are the things I wish I could have told myself early on in my use of TypeScript, once I got comfortable with the syntax.
 
-As a preface, I'm a React developer, so much of the anecdotes I mention will be framed in a React context, but frankly TypeScript applies to all JavaScript code!
-
+As a preface, I'm a React developer, so much of the anecdotes I mention will be framed in a React context, but TypeScript really applies to all JavaScript code!
 ## Trust the compiler
 
 When I first got started with TypeScript, I was extremely diligent and frankly overzealous with granular typing. I didn't let the compiler do anything--if there was a variable
@@ -44,9 +43,10 @@ const Register: React.FC = (): JSX.Element => {
 
 Here's the thing, although all the typing might look ~_cool_~, it doesn't really provide us any benefit as a developer. This is because
 TypeScript is capable of [type inference](https://www.typescriptlang.org/docs/handbook/type-inference.html), which means that your explicit
-types are, for the most part, pointless.
+types are, for the most part, pointless. Now there are definitely going to be scenarios where the TS compiler's inference falls short, I'd
+just encourage you to leverage it as best you can until that point.
 
-You could achieve the exact same type safety as above without the use of an [`interface`](https://www.typescriptlang.org/docs/handbook/interfaces.html):
+You could achieve the exact same type safety as above without the use of an interface:
 ```typescript
 import React, { useState } from 'react';
 
