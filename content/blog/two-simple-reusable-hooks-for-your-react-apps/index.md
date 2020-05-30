@@ -1,6 +1,6 @@
 ---
 title: Two simple, reusable Hooks for your React Apps
-date: 2019-01-28T00:00:00+0000
+date: "2019-01-28"
 description: One of my favorite things to do in React lately is build custom hooks. Here's two that I use a lot!
 ---
 

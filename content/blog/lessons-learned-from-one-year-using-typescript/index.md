@@ -1,6 +1,6 @@
 ---
 title: Lessons I've Learned After a Year of Using TypeScript
-date: "2020-03-25T00:00:00+0000"
+date: "2020-03-25"
 description: "How my experience with TypeScript has made me a better developer"
 ---
 [react-typescript]: ./react-typescript.png

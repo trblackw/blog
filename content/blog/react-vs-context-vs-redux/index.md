@@ -1,6 +1,6 @@
 ---
 title: You probably don't need Redux...or Context!
-date: 2019-12-11T08:28:00+0000
+date: "2019-12-11"
 description: A simple reminder that React, itself, is a state manager
 ---
 [bobby]: ./bobby.jpg

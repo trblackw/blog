@@ -1,6 +1,6 @@
 ---
 title: Manage & share local state with confidence
-date: 2020-01-04T00:00:00+0000
+date: "2020-01-04"
 description: Pass stateful CRUD operations from parent to child more safely with TypeScript
 ---
 

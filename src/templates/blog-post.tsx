@@ -7,6 +7,7 @@ import { rhythm, scale } from "utils/typography"
 import styled from "styled-components"
 import { formatReadingTime, scrollPageTo } from "utils"
 import useViewport from "hooks/useViewport"
+import format from "date-fns/format"
 
 interface Props {
   data: { [key: string]: any }
@@ -44,7 +45,7 @@ const BlogPostTemplate: React.FC<Props> = ({
               justifyContent: "flex-start",
             }}
           >
-            <PostDate>{post.frontmatter.date}</PostDate>
+            <PostDate>{format(new Date(post.frontmatter.date), "MMMM do, yyyy")}</PostDate>
             <ReadTime marginTop={windowWidth > 415 ? "5px" : undefined}>
               {formatReadingTime(post.fields.readingTime.text)}
             </ReadTime>
@@ -95,7 +96,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date
         description
       }
       fields {

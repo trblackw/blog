@@ -1,6 +1,6 @@
 ---
 title: Implementing “Redux-style” state management with React’s useContext & useReducer Hooks
-date: "2019-01-26T00:00:00+0000"
+date: "2019-01-26"
 description: A look into how to manage state in React using just the Context API while applying Redux principles
 ---
 [hook_pirate]: ./hook_pirate.png

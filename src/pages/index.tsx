@@ -6,6 +6,7 @@ import SEO from "components/seo"
 import { rhythm } from "utils/typography"
 import styled from "styled-components"
 import { formatReadingTime } from "utils"
+import format from "date-fns/format"
 
 const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
   <Layout location={location} title={data.site.siteMetadata.title}>
@@ -16,9 +17,7 @@ const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
         <article key={node.fields.slug}>
           <header>
             <BlogPreview>
-              <BlogLink to={node.fields.slug}>
-                {node.frontmatter.title || node.fields.slug}
-              </BlogLink>
+              <BlogLink to={node.fields.slug}>{node.frontmatter.title || node.fields.slug}</BlogLink>
             </BlogPreview>
             <div
               style={{
@@ -28,10 +27,8 @@ const BlogIndex: React.FC = ({ data, location }: any): JSX.Element => (
                 justifyContent: "flex-start",
               }}
             >
-              <BlogDate>{node.frontmatter.date}</BlogDate>
-              <small style={{ marginLeft: "5px" }}>
-                {formatReadingTime(node.fields.readingTime.text)}
-              </small>
+              <BlogDate>{format(new Date(node.frontmatter.date), "MMMM do, yyyy")}</BlogDate>
+              <small style={{ marginLeft: "5px" }}>{formatReadingTime(node.fields.readingTime.text)}</small>
             </div>
           </header>
           <section>
@@ -64,7 +61,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date
             title
             description
           }

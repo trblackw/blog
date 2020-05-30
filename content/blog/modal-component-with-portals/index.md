@@ -1,6 +1,6 @@
 ---
 title: Let’s build a functional, reusable Modal component in React with Portals
-date: 2019-02-01T00:00:00+0000
+date: "2019-02-01"
 description: Using React portals and React hooks to create a pleasant, reusable modal experience
 ---
 [react_portals]: ./react_portals.jpeg

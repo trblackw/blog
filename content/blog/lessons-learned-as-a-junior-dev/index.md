@@ -1,6 +1,6 @@
 ---
 title: 6 Tips To Help Junior Developers Write Better Code
-date: "2019-10-01T00:00:00+0000"
+date: "2019-10-01"
 description: "Lessons I've learned, often the hard way, in my first year as a professional developer"
 ---
 [buckle_up]: ./buckle_up.png

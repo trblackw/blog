@@ -1,6 +1,6 @@
 ---
 title: Managing Google Cloud's Firestore with React Context and Classes
-date: 2020-03-20T00:00:00+0000
+date: "2020-03-20"
 description: Manage your Firestore app's Auth with Firestore & database logic with classes
 ---
 

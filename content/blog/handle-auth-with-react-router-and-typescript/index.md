@@ -1,6 +1,6 @@
 ---
 title: Role-based authentication with react-router & TypeScript
-date: 2019-12-13T00:00:00+0000
+date: "2019-12-13"
 description: Defining a single, strongly typed component to handle role-based navigation 
 ---
 
