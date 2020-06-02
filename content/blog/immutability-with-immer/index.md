@@ -110,13 +110,13 @@ setUsers(prevState => prevState.map(user => (user.id === confirmedUserId ? { ...
 
 So when mapping over the previous user state, when we find the user with an id equal to the `confirmedUserId`, we want to spread over that object and
 update their `emailConfirmed` property. Again, not crazy, but you can see how this can become cumbersome the more nested your state gets and more generally
-how complex your app becomes.
+the more complex your app becomes.
 
 ## Immer is here to help
 
 I know, it took me a second to get to Immer, but I wanted to set the scene for why I like to use it. Immer has [grown increasingly popular](https://www.netlify.com/blog/2018/09/12/the-rise-of-immer-in-react/)
-in the React space over the last couple of years. Immer operates on a [copy-on-write](https://en.wikipedia.org/wiki/Copy-on-write) paradigm, which
-basically just means it's able to create a draft copy of state and any modifications made to that copy, a new state will be published based on those modifications.
+in the React space over the last couple of years. It operates on a [copy-on-write](https://en.wikipedia.org/wiki/Copy-on-write) paradigm, which
+basically just means it's able to create a draft copy of state and for any modifications made to that copy, a new state will be published based on those modifications.
 I'm going to steal an illustration from the [Immer documentation](https://immerjs.github.io/immer/docs/introduction) because I can't think of a better visualization of this process:
 ![immer-draft-process][immer-draft-process]
 
