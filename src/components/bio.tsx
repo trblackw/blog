@@ -35,22 +35,8 @@ const Bio: React.FC = (): JSX.Element => {
     }
   `)
 
-  const { author } = data.site.siteMetadata
   return (
     <Container>
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
       <p style={{ color: '#eee' }}>
         I like to learn, build & write about things I find interesting. It often times coincides with React ⚛️
       </p>
