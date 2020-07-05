@@ -16,7 +16,10 @@ const Bio: React.FC = (): JSX.Element => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+            fluid(maxWidth: 70, quality: 90) {
+                ...GatsbyImageSharpFluid
+            }
+          fixed(width: 100, height: 80) {
             ...GatsbyImageSharpFixed
           }
         }
