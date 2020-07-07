@@ -7,18 +7,16 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
-import styled from 'styled-components'
-import { rhythm } from "../utils/typography"
+import styled from "styled-components"
 
 const Bio: React.FC = (): JSX.Element => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
         childImageSharp {
-            fluid(maxWidth: 70, quality: 90) {
-                ...GatsbyImageSharpFluid
-            }
+          fluid(maxWidth: 70, quality: 90) {
+            ...GatsbyImageSharpFluid
+          }
           fixed(width: 100, height: 80) {
             ...GatsbyImageSharpFixed
           }
@@ -36,16 +34,33 @@ const Bio: React.FC = (): JSX.Element => {
   `)
 
   return (
-    <Container>
-      <p style={{ color: '#eee' }}>
-        I like to learn, build & write about things I find interesting. It often times coincides with React ⚛️
-      </p>
-    </Container>
+    <div>
+      <BioText>
+        I like to learn, build & write about things I find interesting. It often times coincides with React ⚛️. I'm
+        currently working as a mid-level React developer with a lovely team at{" "}
+        <a href="https://crosscomm.com/">CrossComm Inc</a>, a design & development studio in Durham, NC.
+      </BioText>
+      <Hr />
+    </div>
   )
 }
 
 export default Bio
 
 const Container = styled.div`
-  display: flex;
+  padding-bottom: 0;
+  border: 1px solid red;
+`
+
+const Hr = styled.hr`
+  border: 1px solid #BCF2DA;
+  padding-top: 1px;
+  border-radius: 5px;
+`
+
+const BioText = styled.p`
+  color: #eee;
+  font-weight: 200;
+  font-size: 14px;
+  font-family: MonoLisa, monospace;
 `

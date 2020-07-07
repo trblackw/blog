@@ -2,7 +2,6 @@ import React, { ReactNode, useState } from "react"
 import { Link } from "gatsby"
 import { rhythm, scale } from "utils/typography"
 import styled from "styled-components"
-import { ArrowBackIos } from "styled-icons/material/ArrowBackIos"
 import CopyToClipboard from "react-copy-to-clipboard"
 import { MediumSquare } from "styled-icons/boxicons-logos/MediumSquare"
 import { LinkedinSquare } from "styled-icons/boxicons-logos/LinkedinSquare"
@@ -18,13 +17,10 @@ interface Props {
 const Layout: React.FC<Props> = ({ location, title, children }): JSX.Element => {
   const [emailCopied, setEmailCopied] = useState<boolean>(false)
   const [{ width: windowWidth }] = useViewport()
-  //@ts-ignore
-  const rootPath = `${__PATH_PREFIX__}/`
-  let header: JSX.Element
 
-  if (location.pathname === rootPath) {
-    header = (
-      <>
+  return (
+    <Container>
+      <header>
         <h1
           style={{
             ...scale(1.5),
@@ -77,20 +73,7 @@ const Layout: React.FC<Props> = ({ location, title, children }): JSX.Element => 
             {/*</li>*/}
           </Nav>
         </h1>
-      </>
-    )
-  } else {
-    header = (
-      <SubHeader>
-        <HeaderLink to={`/`}>
-          <ArrowBackIos size={30} title="Arrow back" fontWeight={300} color="#8bbabb" />
-        </HeaderLink>
-      </SubHeader>
-    )
-  }
-  return (
-    <Container>
-      <header>{header}</header>
+      </header>
       <main>{children}</main>
       <Footer>
         <div style={{ textAlign: "center" }}>
@@ -105,20 +88,11 @@ const Layout: React.FC<Props> = ({ location, title, children }): JSX.Element => 
 
 export default Layout
 
-const SubHeader = styled.h1`
-  font-family: Merriweather Sans, sans-serif;
-  margin-top: 0;
-  color: #8bbabb;
-`
-
 const HeaderLink = styled(Link)`
   box-shadow: none;
   text-decoration: none;
   color: inherit;
-  box-shadow: none;
-  color: #eee;
   font-weight: 300;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 `
 const Container = styled.div`
   margin: 0 auto;
@@ -151,8 +125,6 @@ const SocialLink = styled.a`
     color: #8bbabb;
     cursor: pointer;
   }
-  text-decoration: none;
-
   &:focus,
   &:hover,
   &:visited,
@@ -181,7 +153,7 @@ const CopiedEmailAlert = styled.span`
 const ResumeLink = styled(Link)`
   font-size: 12px;
   font-weight: 500;
-  color: #C3F4DE;
+  color: #c3f4de;
   border-bottom: none;
   text-decoration: none;
 `

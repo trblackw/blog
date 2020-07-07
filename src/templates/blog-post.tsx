@@ -19,21 +19,14 @@ interface Props {
   location: Location
 }
 
-const BlogPostTemplate: React.FC<Props> = ({
-  data,
-  pageContext,
-  location,
-}): JSX.Element => {
+const BlogPostTemplate: React.FC<Props> = ({ data, pageContext, location }): JSX.Element => {
   const siteTitle: string = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const { markdownRemark: post } = data
   const [{ width: windowWidth }] = useViewport()
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <article>
         <header>
           <PostTitle>{post.frontmatter.title}</PostTitle>
@@ -52,7 +45,7 @@ const BlogPostTemplate: React.FC<Props> = ({
           </div>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
-        <ScrollToTop onClick={() => scrollPageTo('top')}>Back to beginning 👆🏻</ScrollToTop>
+        <ScrollToTop onClick={() => scrollPageTo("top")}>Back to beginning 👆🏻</ScrollToTop>
         <Divider />
         <footer>
           <Bio />
@@ -111,6 +104,7 @@ export const pageQuery = graphql`
 const PostTitle = styled.h1`
   margin: ${rhythm(1)} 0 0 0;
   color: #eee;
+  font-family: MonoLisa, monospace !important;
 `
 const PostDate = styled.p`
   scale: ${scale(-1 / 5)};

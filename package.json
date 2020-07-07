@@ -1,7 +1,7 @@
 {
   "name": "personal-blog",
   "private": true,
-  "description": "Tucker Blackwell's personal blog",
+  "description": "My personal tech blog",
   "version": "0.1.0",
   "author": "Tucker Blackwell <tuckerblackwell.dev@gmail.com>",
   "bugs": {
