@@ -36,7 +36,7 @@ const Bio: React.FC = (): JSX.Element => {
   return (
     <div>
       <BioText>
-        I like to learn, build & write about things I find interesting. They often times coincides with React ⚛️. I'm
+        I like to learn, build & write about things I find interesting. They often times coincide with React ⚛️. I'm
         currently working as a mid-level React developer with a lovely team at{" "}
         <a href="https://crosscomm.com/">CrossComm Inc</a>, a design & development studio in Durham, NC.
       </BioText>
