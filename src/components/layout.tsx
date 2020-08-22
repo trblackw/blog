@@ -68,9 +68,6 @@ const Layout: React.FC<Props> = ({ location, title, children }): JSX.Element => 
                 </SocialLink>
               </CopyToClipboard>
             </li>
-            {/*<li style={{ marginBottom: '10px'}}>*/}
-            {/*  <ResumeLink to="">Resume</ResumeLink>*/}
-            {/*</li>*/}
           </Nav>
         </h1>
       </header>
@@ -79,7 +76,16 @@ const Layout: React.FC<Props> = ({ location, title, children }): JSX.Element => 
         <div style={{ textAlign: "center" }}>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href="https://www.gatsbyjs.org" rel="noopener noreferrer">
+            Gatsby
+          </a>
+          <span style={{ display: "block", fontSize: "13px", color: "lightgray" }}>
+            Check out the{" "}
+            <a target="_blank" href="https://github.com/trblackw/blog" rel="noopener noreferrer">
+              source code
+            </a>{" "}
+            👀
+          </span>
         </div>
       </Footer>
     </Container>
@@ -136,6 +142,9 @@ const SocialLink = styled.a`
 
 const Footer = styled.div`
   color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   a {
     color: #c7f0db;
     &:hover {
