@@ -37,8 +37,8 @@ const Bio: React.FC = (): JSX.Element => {
     <div>
       <BioText>
         I like to learn, build & write about things I find interesting. They often times coincide with React ⚛️. I'm
-        currently working as a mid-level React developer with a lovely team at{" "}
-        <a href="https://crosscomm.com/">CrossComm Inc</a>, a design & development studio in Durham, NC.
+        currently working as a software engineer with a lovely team at{" "}
+        <a href="https://www.revops.io/">RevOps</a>.
       </BioText>
       <Hr />
     </div>
